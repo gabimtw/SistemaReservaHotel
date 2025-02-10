@@ -35,4 +35,5 @@ const categoria1 = new Categoria(1, "Tecnologia");
 const projeto1 = new Projeto(101, "Desenvolvimento Web", categoria1);
 
 console.log(projeto1.getNome()); // Saída: Desenvolvimento Web
-console.log(projeto1._categoria); // Saída: { _id: 1, _nome: 'Tecnologia' }
+console.log(projeto1._categoria); // Saída: { _id: 1, _nome: 'Tecnologia' }
+*/

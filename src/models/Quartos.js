@@ -1,35 +1,52 @@
 class Quartos {
-    constructor(id, TipoQuarto, Status){
-        this.id = id
-        this.TipoQuarto = ["Suite","Solteiro","Casal"]
-        this.Status = Status
-    }
-    setId(id){
+    constructor(id, tipo, status = false) {
         this.id = id;
+        this.tipoQuarto = this.definirTipoQuarto(tipo);
+        this.status = { reservado: status }; // Objeto booleano indicando reserva
     }
-    setTipoQuarto(TipoQuarto){
-        if (this.TipoQuarto.includes(TipoQuarto)) {
-            this.TipoQuarto = TipoQuarto; // Define o tipo de quarto se for válido
+
+    definirTipoQuarto(tipo) {
+        const tiposDisponiveis = {
+            "Suite": { nome: "Suite", preco: 300, capacidade: 4 },
+            "Casal": { nome: "Casal", preco: 200, capacidade: 2 },
+            "Solteiro": { nome: "Solteiro", preco: 150, capacidade: 1 }
+        };
+
+        if (tiposDisponiveis[tipo]) {
+            return tiposDisponiveis[tipo];
         } else {
             console.log("Erro: Tipo de quarto inválido!");
+            return null;
         }
     }
-    setStatus(estado){
-        if (typeof estado === "boolean"){//inspeciona qual o valor da variavel que no caso é boolean
-            this.Status.estado = estado; // Define o status do quarto (true ou false)
+
+    setId(id) {
+        this.id = id;
+    }
+
+    setTipoQuarto(tipo) {
+        this.tipoQuarto = this.definirTipoQuarto(tipo);
+    }
+
+    setStatus(reservado) {
+        if (typeof reservado === "boolean") {
+            this.status.reservado = reservado;
         } else {
             console.log("Erro: O status deve ser um valor booleano (true ou false)!");
         }
     }
 
     getStatus() {
-        return this.Status.estado ? "Reservado" : "Disponível"; // Retorna o status em texto
+        return this.status.reservado ? "Reservado" : "Disponível";
     }
-    getId(){
-        return this.id 
+
+    getId() {
+        return this.id;
     }
-    getTipoQuarto(){
-        return this.TipoQuarto
+
+    getTipoQuarto() {
+        return this.tipoQuarto;
     }
-}    
+}
+
 export default Quartos;

@@ -1,37 +1,62 @@
-class clientes {
-    constructor(nome,CPF,email,telefone,endereço,data_nascimento){
-        this.nome = nome
+class Clientes {
+    constructor(Id,Nome,CPF,Email,Telefone,DDD,Endereço,Data_nascimento){
+        this.Id = Id
+        this.Nome = Nome
         this.CPF = CPF
-        this.email = email
-        this.telefone = telefone
-        this.endereço = endereço
-        this.data_nascimento = data_nascimento
+        this.Email = Email
+        this.Telefone = Telefone
+        this.Endereço = Endereço
+        this.Data_nascimento = Data_nascimento
+        this.DDD = DDD
     }
-
-    setnome(nome){
-        this.nome = nome
+    setId(Id){
+        this.Id = Id
+    }
+    setNome(Nome){
+        this.Nome = Nome
     }
     setCPF(CPF){
         this.CPF = CPF
-        if(CPF.length != 11){
-            console.log("erro")
-        }
     }
-    setemail(email){
-        this.email = email
-        if (!email.includes("@") && !email.includes(".")) {
-            console.log("erro")
-        }
+    setEmail(Email){
+        this.Email = Email
     }
-    settelefone(DDD,telefone){
+    setDDD(DDD){
         this.DDD = DDD
-        this.telefone = telefone
-        if(DDD.length != 2){
-            console.log("ddd errado")
-        }
-        else if(telefone.length != 9){
-            console.log("erro")
-        }
     }
-    
+    setTelefone(Telefone){
+        this.Telefone = Telefone
+    }
+    setEndereço(Endereço){
+        this.Endereço = Endereço
+    }
+    setData_nascimento(){
+        this.Data_nascimento = this.Data_nascimento
+    }
+
+    getId(){
+        return this.Id
+    }
+    getNome(){
+        return this.Nome
+    }
+    getCPF(){
+        return this.CPF
+    }
+    getEmail(){
+        return this.Email
+    }
+    getDDD(){
+        return this.DDD
+    }
+    getTelefone(){
+        return this.Telefone
+    }
+    getEndereço(){
+        return this.Endereço
+    }
+    getData_nascimento(){
+        return this.Data_nascimento
+    }
 }
+export default Clientes

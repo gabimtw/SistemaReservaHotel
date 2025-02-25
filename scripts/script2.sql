@@ -1,5 +1,5 @@
 --Criar tabela de Clientes:
-CREATE TABLE clientes (
+CREATE TABLE Clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
@@ -9,7 +9,7 @@ CREATE TABLE clientes (
 );
 
 --Criar tabela de Hotéis:
-CREATE TABLE hoteis (
+CREATE TABLE Hotel (
     id_hotel INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     endereco TEXT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE hoteis (
 
 
 --Criar tabela de Quartos:
-CREATE TABLE quartos (
+CREATE TABLE Quartos (
     id_quarto INT AUTO_INCREMENT PRIMARY KEY,
     id_hotel INT,
     numero_quarto VARCHAR(10) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE quartos (
 );
 
 --Criar tabela de Reservas:
-CREATE TABLE reservas (
+CREATE TABLE Reservas (
     id_reserva INT AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT,
     id_quarto INT,

@@ -5,7 +5,7 @@ const ClientesRepository = {
 
     async findAll() {
         const rows = await connection.query("select * from Clientes", []);
-        return rows.map(row => new Clientes(row.id, row.nome));
+        return rows.map(row => new Clientes(row.Id, row.nome, row.CPF, row.Email, row.Telefone, row.Endereço, row.Data_nascimento));
     },
 
     async createProject(Clientes){

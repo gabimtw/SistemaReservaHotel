@@ -1,3 +1,7 @@
+--configurar base de dados
+CREATE DATABASE hotel_reservas;
+USE hotel_reservas;
+
 --Criar tabela de Clientes:
 CREATE TABLE Clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,

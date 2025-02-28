@@ -1,5 +1,5 @@
 class Clientes {
-    constructor(Id,Nome,CPF,Email,Telefone,DDD,Endereço,Data_nascimento){
+    constructor(Id,Nome,CPF,Email,Telefone,Endereço,Data_nascimento){
         this.Id = Id
         this.Nome = Nome
         this.CPF = CPF
@@ -7,7 +7,6 @@ class Clientes {
         this.Telefone = Telefone
         this.Endereço = Endereço
         this.Data_nascimento = Data_nascimento
-        this.DDD = DDD
     }
     setId(Id){
         this.Id = Id
@@ -20,9 +19,6 @@ class Clientes {
     }
     setEmail(Email){
         this.Email = Email
-    }
-    setDDD(DDD){
-        this.DDD = DDD
     }
     setTelefone(Telefone){
         this.Telefone = Telefone
@@ -45,9 +41,6 @@ class Clientes {
     }
     getEmail(){
         return this.Email
-    }
-    getDDD(){
-        return this.DDD
     }
     getTelefone(){
         return this.Telefone

@@ -1,5 +1,6 @@
 class Reservas {
-    constructor(hospedeQuarto, clientes_id, dataEntrada, responsável, quarto, Pagamento, checkin, checkout) {
+    constructor(id, hospedeQuarto, clientes_id, dataEntrada, responsável, quarto, Pagamento, checkin, checkout) {
+        this.id = id
         this.hospedeQuarto = hospedeQuarto;
         this.clientes_id = clientes_id;
         this.dataEntrada = dataEntrada;
@@ -8,6 +9,10 @@ class Reservas {
         this.Pagamento = Pagamento;
         this.checkin = checkin;
         this.checkout = checkout;
+    }
+
+    setid(id){
+        this.id = id
     }
 
     setHospedeQuarto(hospedeQuarto) {
@@ -40,6 +45,10 @@ class Reservas {
 
     setCheckout(checkout) {
         this.checkout = checkout;
+    }
+
+    getid(){
+        return this.id
     }
 
     getHospedeQuarto() {

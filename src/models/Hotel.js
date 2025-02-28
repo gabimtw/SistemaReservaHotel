@@ -1,13 +1,17 @@
 class Hotel {
-    constructor(Nome,Email,Endereço,Cidade,Estado,Telefone,DDD){
+    constructor(id,Nome,Email,Endereço,Cidade,Estado,Telefone){
+        this.id = id
         this.Nome = Nome
         this.Email = Email
         this.Endereço = Endereço
         this.Cidade = Cidade
         this.Estado = Estado
         this.Telefone = Telefone
-        this.DDD = DDD
     }
+    setid(id){
+        this.id = id
+    }
+
     setNome(){
         this.Nome = Nome
     }
@@ -31,9 +35,10 @@ class Hotel {
         this.Telefone = Telefone;
     }
 
-    setDDD(DDD) {
-        this.DDD = DDD;
+    getid(){
+        return this.id
     }
+
     getNome() {
         return this.Nome;
     }
@@ -58,8 +63,5 @@ class Hotel {
         return this.Telefone;
     }
 
-    getDDD() {
-        return this.DDD;
-    }
 }
 export default Hotel

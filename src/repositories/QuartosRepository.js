@@ -5,7 +5,7 @@ const QuartosRepository = {
 
     async findAll() {
         const rows = await connection.query("select * from Quartos", []);
-        return rows.map(row => new Quartos(row.id, row.nome));
+        return rows.map(row => new Quartos(row.id, row.Quartos, row.Status));
     },
 
     async createProject(Quartos){

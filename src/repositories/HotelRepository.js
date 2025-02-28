@@ -5,7 +5,7 @@ const HotelRepository = {
 
     async findAll() {
         const rows = await connection.query("select * from Hotel", []);
-        return rows.map(row => new Hotel(row.id, row.nome));
+        return rows.map(row => new Hotel(row.id, row.Nome, row.Email, row.Endereço, row.Cidade, row.Estado, row.Telefone));
     },
 
     async createProject(Hotel){

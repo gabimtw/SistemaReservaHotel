@@ -1,10 +1,10 @@
-import Reservas from "../repositories/ReservasRepository.js";
+import ReservaRepository from "../repositories/ReservaRepository.js";
 
-const ReservasController = {
+const ReservaController = {
 
     async getAll(req, res){
         try {
-            const reservas = await ReservasRepository.findAll();
+            const reservas = await ReservaRepository.findAll();
             res.json(reservas);
         }catch(err){
             res.status(500).json({error : "Erro na busca de reservas", err});
@@ -15,7 +15,7 @@ const ReservasController = {
         const {clientes_id, quarto, dataEntrada} = req.body;
         try {
             const novaReserva = {clientes_id, quarto, dataEntrada};
-            const reservaCriada = await ReservasRepository.createProject(novaReserva);
+            const reservaCriada = await ReservaRepository.createReserva(novaReserva);
             res.status(201).json(reservaCriada);
         }catch(err){
             res.status(500).json({error : "Erro na criação de reservas", err});
@@ -23,4 +23,4 @@ const ReservasController = {
     }
 }
 
-export default ReservasController;
+export default ReservaController;

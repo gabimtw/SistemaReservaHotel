@@ -1,10 +1,10 @@
-import Clientes from "../repositories/ClientesRepository.js";
+import ClienteRepository from "../repositories/ClienteRepository.js";
 
-const ClientesController = {
+const ClienteController = {
 
     async getAll(req, res){
         try {
-            const Clientes = await ClientesRepository.findAll();
+            const Clientes = await ClienteRepository.findAll();
             res.json(Clientes);
         }catch(err){
             res.status(500).json({error : "Erro na busca de lientes", err});
@@ -15,7 +15,7 @@ const ClientesController = {
         const {nome} = req.body;
         try {
             const novoCliente = {nome};
-            const ClienteCriado = await ClientesRepository.createProject(novoCliente);
+            const ClienteCriado = await ClienteRepository.createCliente(novoCliente);
             res.status(201).json(ClienteCriado);
         }catch(err){
             res.status(500).json({error : "Erro na criação de clientes", err});
@@ -24,4 +24,4 @@ const ClientesController = {
 
 }
 
-export default ClientesController;
+export default ClienteController;

@@ -15,7 +15,7 @@ const HotelController = {
         const {nome} = req.body;
         try {
             const novoHotel = {nome};
-            const hotelCriado = await HotelRepository.createProject(novoHotel);
+            const hotelCriado = await HotelRepository.createHotel(novoHotel);
             res.status(201).json(hotelCriado);
         }catch(err){
             res.status(500).json({error : "Erro na criação de hotéis", err});

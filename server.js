@@ -3,18 +3,18 @@ dotenv.config();
 
 import app from "./src/app.js";
 import connection from "./src/config/dbConnect.js";
-import ClientesRouters from "./src/routers/ClientesRouters.js";
-import HotelRouters from "./src/routers/HotelRouters.js";
-import QuartosRouters from "./src/routers/QuartosRouters.js";
-import ReservasRouters from "./src/routers/ResevasRouters.js";
+import ClienteRouter from "./src/routers/ClienteRouter.js";
+import HotelRouter from "./src/routers/HotelRouter.js";
+import QuartoRouter from "./src/routers/QuartoRouter.js";
+import ReservaRouter from "./src/routers/ResevaRouter.js";
 
 //Definição de uma constante para a !porta! TCP
 const PORT = process.env.PORT || 3000;
 
-app.use("/clientes", ClientesRouters);
-app.use("/hotel", HotelRouters);
-app.use("/quartos", QuartosRouters);
-app.use("/reservas", ReservasRouters);
+app.use("/clientes", ClienteRouter);
+app.use("/hoteis", HotelRouter);
+app.use("/quartos", QuartoRouter);
+app.use("/reservas", ReservaRouter);
 
 //app.use("/projetos",ProjetoRouters); Qualquer requisição para /projetos será tratada pelo ProjetoRouters.js.
 //app.use("/categorias", CategoriaRouters); Qualquer requisição para /categorias será tratada pelo CategoriaRouters.js.

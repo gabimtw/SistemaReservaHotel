@@ -1,10 +1,5 @@
---configurar base de dados
-CREATE DATABASE hotel_reservas;
-USE hotel_reservas;
-
---Criar tabela de Clientes:
-CREATE TABLE Clientes (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     telefone VARCHAR(20),
@@ -12,9 +7,8 @@ CREATE TABLE Clientes (
     data_nascimento DATE
 );
 
---Criar tabela de Hotéis:
-CREATE TABLE Hotel (
-    id_hotel INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE hoteis (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     endereco TEXT NOT NULL,
     cidade VARCHAR(100),
@@ -23,39 +17,35 @@ CREATE TABLE Hotel (
     email VARCHAR(100)
 );
 
-
---Criar tabela de Quartos:
-CREATE TABLE Quartos (
-    id_quarto INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE quartos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_hotel INT,
-    numero_quarto VARCHAR(10) NOT NULL,
-    tipo VARCHAR(50) NOT NULL,  -- Ex: "Standard", "Luxo", etc.
-    capacidade INT,  -- Número de pessoas que o quarto suporta
-    preco DECIMAL(10, 2) NOT NULL,  -- Preço por noite
+    numero_quarto VARCHAR(10) NOT NULL UNIQUE,
+    tipo VARCHAR(50) NOT NULL,
+    capacidade INT,
+    preco DECIMAL(10, 2) NOT NULL,
     status ENUM('disponível', 'reservado', 'manutenção') DEFAULT 'disponível',
-    FOREIGN KEY (id_hotel) REFERENCES hoteis(id_hotel)
+    FOREIGN KEY (id_hotel) REFERENCES hoteis(id)
 );
 
---Criar tabela de Reservas:
-CREATE TABLE Reservas (
-    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE reservas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT,
     id_quarto INT,
     data_check_in DATE NOT NULL,
     data_check_out DATE NOT NULL,
     status ENUM('pendente', 'confirmada', 'cancelada') DEFAULT 'pendente',
     data_reserva TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
-    FOREIGN KEY (id_quarto) REFERENCES quartos(id_quarto)
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id),
+    FOREIGN KEY (id_quarto) REFERENCES quartos(id)
 );
 
---Criar tabela de Pagamentos:
 CREATE TABLE pagamentos (
-    id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_reserva INT,
     valor DECIMAL(10, 2) NOT NULL,
     data_pagamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     metodo_pagamento ENUM('cartão de crédito', 'boleto', 'transferência', 'dinheiro') NOT NULL,
     status_pagamento ENUM('pendente', 'confirmado', 'falhou') DEFAULT 'pendente',
-    FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
+    FOREIGN KEY (id_reserva) REFERENCES reservas(id)
 );

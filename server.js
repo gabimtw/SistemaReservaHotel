@@ -6,7 +6,7 @@ import connection from "./src/config/dbConnect.js";
 import ClienteRouter from "./src/routers/ClienteRouter.js";
 import HotelRouter from "./src/routers/HotelRouter.js";
 import QuartoRouter from "./src/routers/QuartoRouter.js";
-import ReservaRouter from "./src/routers/ResevaRouter.js";
+import ReservaRouter from "./src/routers/ReservaRouter.js";
 
 //Definição de uma constante para a !porta! TCP
 const PORT = process.env.PORT || 3000;

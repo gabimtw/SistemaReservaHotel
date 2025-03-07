@@ -7,7 +7,7 @@ const ClienteController = {
             const Clientes = await ClienteRepository.findAll();
             res.json(Clientes);
         }catch(err){
-            res.status(500).json({error : "Erro na busca de lientes", err});
+            res.status(500).json({error : "Erro na busca de clientes", err});
         }
     },
 
